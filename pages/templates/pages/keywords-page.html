@@ -1,0 +1,22 @@
+{% extends 'pages/base.html' %}
+
+{% block content %}
+    <h2>Your results</h2>
+    {% for keyword in data %}
+        <p>{{ keyword }}</p>
+    {% endfor %}
+
+    {% if page.has_previous == True %}
+        <div class="link">
+            <a href="{% url 'pages:page_view' page.current|add:'-1' %}">Previous</a>
+        </div>
+    {% endif %}
+    <div class="link">
+        <a href="{% url 'pages:page_view' page.current %}">Current</a>
+    </div>
+    {% if page.has_next == True %}
+        <div class="link">
+            <a href="{% url 'pages:page_view' page.current|add:'1' %}">Next</a>
+        </div>
+    {% endif %}
+{% endblock content %}

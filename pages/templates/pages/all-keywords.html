@@ -1,0 +1,7 @@
+{% extends 'pages/base.html' %}
+
+{% block content %}
+    {% for keyword in keywords %}
+        <p>{{ keyword }}</p>
+    {% endfor %}
+{% endblock content %}
